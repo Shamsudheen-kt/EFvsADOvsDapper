@@ -1,0 +1,36 @@
+﻿@model List<HomeDTO>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="d-table-bgcolor">
+                <th width="30%">Header</th>
+                <th width="18%">Dapper</th>
+                <th width="18%">ADO</th>
+                <th width="18%">EF</th>
+                <th width="18%">EF Using SP</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if (Model != null && Model.Count > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.HeaderName</td>
+                            <td>@item.TakenTime_Dapper</td>
+                            <td>@item.TakenTime_ADO</td>
+                            <td>@item.TakenTime_EF</td>
+                            <td>@item.TakenTime_EFwithSP</td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
